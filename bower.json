@@ -1,0 +1,20 @@
+{
+  "name": "jQuery-doTmpl",
+  "description": "jQuery templating plugin powered by doT engine - fast and simple",
+  "main": "",
+  "authors": [
+    "Maksim Makarov <pr0n1x@yandex.ru"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/pr0n1x/jquery-doTmpl",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "doT": "^1.0.1"
+  }
+}
