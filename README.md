@@ -9,7 +9,7 @@ $ bower install jquery-doTmpl
 doTmpl of course depends on [doT.js](http://olado.github.io/doT/index.html)
 ```html
 <script src="bower_components/doT/doT.min.js"></script>
-<script src="bower_components/jQuery-doTmpl/dist/jq-dot.min.js"></script>
+<script src="bower_components/jquery-doTmpl/dist/jq-dot.min.js"></script>
 ```
 
 ## How to use
