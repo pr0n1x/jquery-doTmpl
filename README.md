@@ -26,7 +26,8 @@ doTmpl of course depends on [doT.js](http://olado.github.io/doT/index.html)
 <!-- be careful "data-param-name-one" attribute will be interpreted as "it.paramNameOne"
     see https://www.w3.org/TR/html5/dom.html#dom-dataset
     
-    Writing a statement like $( "body" ).data( { "my-name": "aValue" } ).data(); will return { myName: "aValue" }
+    Writing a statement like: $( "body" ).data( { "my-name": "aValue" } ).data();
+    will return: { myName: "aValue" }
 -->
 
 <!-- Template -->
@@ -59,10 +60,10 @@ doTmpl of course depends on [doT.js](http://olado.github.io/doT/index.html)
 (function($) {
     var $cartConteiner = $('#cart').doTmpl('tmpl-cart', {
         // this is initial data with higher priority than data-attributes data :)
-         price_value="8"
-        ,discount_value="2"
-        ,discount_percent="20"
-        ,price_without_discount="10"
+         price_value: 8
+        ,discount_value: 2
+        ,discount_percent: 20
+        ,price_without_discount: 10
     });
     
     // after initialization plugin cached template and no need to specify templateId
