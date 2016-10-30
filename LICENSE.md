@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2016 pr0n1x
+Copyright (c) 2016 Maxim Makarov (aka pr0n1x) <pr0n1x@yandex.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
