@@ -1,5 +1,7 @@
 var gulp = require('gulp')
-	,minify = require('gulp-minify')
+	,uglify = require('gulp-uglify')
+	,debug = require('gulp-debug')
+	,rename = require('gulp-rename')
 	,helpDoc = require('gulp-help-doc')
 ;
 
@@ -11,7 +13,9 @@ var gulp = require('gulp')
 gulp.task('build', function() {
 	gulp.src(['src/jq-dot.js'])
 		.pipe(gulp.dest('dist/'))
-		.pipe(minify({ext: {source: '.js', min: '.min.js'}}))
+		.pipe(debug({title: 'minification'}))
+		.pipe(uglify())
+		.pipe(rename({extname: '.min.js'}))
 		.pipe(gulp.dest('dist/'))
 	;
 });

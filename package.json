@@ -1,14 +1,24 @@
- {
-	"name": "jquery-doTmpl",
-	"description": "jQuery templating plugin powered by doT engine - fast and simple",
-	"version": "1.0.0",
-	"homepage": "https://github.com/pr0n1x/jquery-doTmpl",
-	"author": "Maksim Makarov <pr0n1x@yandex.ru",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/pr0n1x/jquery-doTmpl"
-	},
-	"bugs": {
-		"url": "https://github.com/pr0n1x/jquery-doTmpl/issues"
-	},
- }
+{
+  "name": "jquery-dotmpl",
+  "description": "jQuery templating plugin powered by doT engine - fast and simple",
+  "version": "1.0.0",
+  "homepage": "https://github.com/pr0n1x/jquery-doTmpl",
+  "author": "Max Makarov <pr0n1x@yandex.ru",
+  "license": "MIT",
+  "keywords": ["dot", "dotjs", "template", "template engine", "jquery template"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pr0n1x/jquery-doTmpl"
+  },
+  "bugs": {
+    "url": "https://github.com/pr0n1x/jquery-doTmpl/issues"
+  },
+  "dependencies": {
+    "dot": "^1.1.3"
+  },
+  "devDependencies": {
+    "gulp-debug": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^2.1.2"
+  }
+}
