@@ -30,23 +30,29 @@
     } else {
         // Browser globals
 		// [pr0n1x] Надо убедиться что получим действительно глобальный объект
-		var _globals = (0,eval)('this');
+		let _globals = (0,eval)('this');
         factory(_globals.jQuery);
     }
 }(function ($) {
-   var templatesCompiled = {};
+   let templatesCompiled = {};
 
 	function compileTemplate(tmplId) {
-		var $template = $('script#'+tmplId);
+		let $template = $('script#'+tmplId);
 		if($template.length < 1) {
-			var errStr = 'Template "'+tmplId+'" not found';
+			let errStr = 'Template "'+tmplId+'" not found';
 			throw (errStr);
 		}
-		return doT.template($template.text());
+		try {
+			return doT.template($template.text());
+		}
+		catch(error) {
+			console.error('Error on compilation of template id="'+tmplId+'"');
+			throw error;
+		}
 	}
 
 	$.fn.doTmpl = function(tmplId, data) {
-		var tmpl = {
+		let tmpl = {
 				 sel: this.selector
 				,id: null
 				,du: null
@@ -81,7 +87,7 @@
 		}
 
 		return this.each(function() {
-			var $this = $(this);
+			let $this = $(this);
 			$this.data(data);
 			$this.html(tmpl.du($this.data()));
 		});

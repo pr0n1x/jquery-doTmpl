@@ -12,12 +12,10 @@ var gulp = require('gulp')
  */
 gulp.task('build', function() {
 	gulp.src(['src/jq-dot.js'])
-		.pipe(gulp.dest('dist/'))
 		.pipe(debug({title: 'minification'}))
 		.pipe(uglify())
 		.pipe(rename({extname: '.min.js'}))
-		.pipe(gulp.dest('dist/'))
-	;
+		.pipe(gulp.dest('dist/'));
 });
 
 gulp.task('default', ['help']);
