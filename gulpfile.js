@@ -1,5 +1,5 @@
-var gulp = require('gulp')
-	,uglify = require('gulp-uglify')
+const gulp = require('gulp')
+	,uglify = require('gulp-uglify-es').default
 	,debug = require('gulp-debug')
 	,rename = require('gulp-rename')
 	,helpDoc = require('gulp-help-doc')
