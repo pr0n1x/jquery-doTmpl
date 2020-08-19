@@ -1,7 +1,7 @@
 {
   "name": "jquery-dotmpl",
   "description": "jQuery templating plugin powered by doT engine - fast and simple",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "homepage": "https://github.com/pr0n1x/jquery-doTmpl",
   "author": "Max Makarov <pr0n1x@yandex.ru",
   "license": "MIT",

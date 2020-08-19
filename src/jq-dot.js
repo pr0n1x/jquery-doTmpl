@@ -6,35 +6,35 @@
 
 // plugin definition like https://github.com/umdjs/umd/blob/master/templates/jqueryPlugin.js
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        // Node/CommonJS
-        module.exports = function( root, jQuery ) {
-            if ( jQuery === undefined ) {
-                // require('jQuery') returns a factory that requires window to
-                // build a jQuery instance, we normalize how we use modules
-                // that require this pattern but the window provided is a noop
-                // if it's defined (how jquery works)
-                if ( typeof window !== 'undefined' ) {
-                    jQuery = require('jquery');
-                }
-                else {
-                    jQuery = require('jquery')(root);
-                }
-            }
-            factory(jQuery);
-            return jQuery;
-        };
-    } else {
-        // Browser globals
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['jquery'], factory);
+	} else if (typeof module === 'object' && module.exports) {
+		// Node/CommonJS
+		module.exports = function( root, jQuery ) {
+			if ( jQuery === undefined ) {
+				// require('jQuery') returns a factory that requires window to
+				// build a jQuery instance, we normalize how we use modules
+				// that require this pattern but the window provided is a noop
+				// if it's defined (how jquery works)
+				if ( typeof window !== 'undefined' ) {
+					jQuery = require('jquery');
+				}
+				else {
+					jQuery = require('jquery')(root);
+				}
+			}
+			factory(jQuery);
+			return jQuery;
+		};
+	} else {
+		// Browser globals
 		// [pr0n1x] Надо убедиться что получим действительно глобальный объект
 		let _globals = (0,eval)('this');
-        factory(_globals.jQuery);
-    }
+		factory(_globals.jQuery);
+	}
 }(function ($) {
-   let templatesCompiled = {};
+	let templatesCompiled = {};
 
 	function compileTemplate(tmplId) {
 		let $template = $('script#'+tmplId);
@@ -51,12 +51,12 @@
 		}
 	}
 
-	$.fn.doTmpl = function(tmplId, data) {
-		let tmpl = {
-				 sel: this.selector
-				,id: null
-				,du: null
-			};
+	function prepareTemplate(selector, tmplId, data) {
+		const tmpl = {
+			sel: selector
+			,id: null
+			,du: null
+		};
 		switch(typeof(tmplId)) {
 			case 'object':
 				data = tmplId;
@@ -85,11 +85,23 @@
 			tmpl.du = compileTemplate(tmpl.id);
 			templatesCompiled[tmpl.sel] = tmpl;
 		}
+		return tmpl;
+	}
 
+	$.fn.doTmpl = function(tmplId, data) {
 		return this.each(function() {
-			let $this = $(this);
+			const tmpl = prepareTemplate(this.selector, tmplId, data);
+			const $this = $(this);
 			$this.data(data);
 			$this.html(tmpl.du($this.data()));
+		});
+	};
+	$.fn.doTmplReplace = function(tmplId, data) {
+		return this.each(function() {
+			const tmpl = prepareTemplate(this.selector, tmplId, data);
+			const $this = $(this);
+			$this.data(data);
+			$this.replaceWith(tmpl.du($this.data()));
 		});
 	};
 }));
